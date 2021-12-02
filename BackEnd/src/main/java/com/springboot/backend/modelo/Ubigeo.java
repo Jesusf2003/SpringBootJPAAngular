@@ -8,7 +8,7 @@ public class Ubigeo {
 	
 	@Id
 	@Column(name = "codubi")
-	private String id;
+	private String codubi;
 	
 	@Column(name = "depubi")
 	private String depubi;
@@ -18,13 +18,13 @@ public class Ubigeo {
 	
 	@Column(name = "disubi")
 	private String disubi;
-
-	public String getId() {
-		return id;
+	
+	public String getCodubi() {
+		return codubi;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setCodubi(String codubi) {
+		this.codubi = codubi;
 	}
 
 	public String getDepubi() {
@@ -50,4 +50,5 @@ public class Ubigeo {
 	public void setDisubi(String disubi) {
 		this.disubi = disubi;
 	}
+
 }

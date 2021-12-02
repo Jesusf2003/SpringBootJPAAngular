@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.springboot.backend.modelo.Ubigeo;
 
-public interface UbigeoRepository extends JpaRepository<Ubigeo, Long>{
+public interface UbigeoRepository extends JpaRepository<Ubigeo, String>{
 
 }

@@ -15,19 +15,21 @@ public class UbigeoService implements UbigeoRepository {
 	
 	@Autowired
 	private UbigeoRepository ubirep;
-	
+
 	@Override
 	public List<Ubigeo> findAll() {
+		// TODO Auto-generated method stub
 		return ubirep.findAll();
 	}
 
 	@Override
 	public List<Ubigeo> findAll(Sort sort) {
+		// TODO Auto-generated method stub
 		return ubirep.findAll(sort);
 	}
 
 	@Override
-	public List<Ubigeo> findAllById(Iterable<Long> ids) {
+	public List<Ubigeo> findAllById(Iterable<String> ids) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -63,7 +65,7 @@ public class UbigeoService implements UbigeoRepository {
 	}
 
 	@Override
-	public Ubigeo getOne(Long id) {
+	public Ubigeo getOne(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -93,13 +95,13 @@ public class UbigeoService implements UbigeoRepository {
 	}
 
 	@Override
-	public Optional<Ubigeo> findById(Long id) {
+	public Optional<Ubigeo> findById(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean existsById(Long id) {
+	public boolean existsById(String id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -111,7 +113,7 @@ public class UbigeoService implements UbigeoRepository {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -156,5 +158,4 @@ public class UbigeoService implements UbigeoRepository {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

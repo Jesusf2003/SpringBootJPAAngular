@@ -1,0 +1,94 @@
+<div class="container" style="margin-top: 5em; margin-bottom:5em; width:50%;">
+  <div class="card">
+    <div class="card-header">
+      <h3 style="text-align:center;">Formulario de registro</h3>
+    </div>
+    <div class="card-body">
+      <form class="form" [formGroup]="personaForm">
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese sus nombres"
+            formControlName="nomper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese sus apellidos"
+            formControlName="apeper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese un usuario"
+            formControlName="userper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese una contraseña"
+            formControlName="pswdper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese una dirección"
+            formControlName="dirper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese un correo"
+            formControlName="emaper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese su Nº de DNI"
+            formControlName="dniper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese su Nº de celular"
+            formControlName="celper">
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese un rol" formControlName="rolper">
+        </div>
+        <div class="mb-3">
+          <select name="id" id="id" class="form-control form-control-sm" formControlName="ubigeo">
+            <option [value]="item.codubi" *ngFor="let item of ubigeo">
+              {{item.codubi}}, {{ item.depubi }}, {{ item.proubi }}, {{ item.disubi }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm" placeholder="Ingrese su estado"
+            formControlName="estper">
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm" (click)="agregarPersona();">Guardar datos</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="formularioRegistro">
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Id</th>
+          <th>Apellidos y Nombres</th>
+          <th>Celular</th>
+          <th>DNI</th>
+          <th>Correo</th>
+          <th>Dirección</th>
+          <th>Ubigeo</th>
+          <th>Rol</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item for persona">
+          <th>{{ item.codper }}</th>
+          <td>{{ item.apeper }}, {{ item.nomper }}</td>
+          <td>{{ item.celper }}</td>
+          <td>{{ item.dniper }}</td>
+          <td>{{ item.emaper }}</td>
+          <td>{{ item.dirper }}</td>
+          <td>
+            {{ item.ubigeo.depubi }}, {{ item.ubigeo.proubi }},
+            {{ item.ubigeo.disubi }}
+          </td>
+          <td>{{ item.rolper }}</td>
+          <td>{{ item.estper }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Persona } from './persona.modelo';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class PersonaComponent {
   }
 
   public savePersona(persona: any): Observable<any>{
+    console.log(persona);
     return this.httpClient.post(this.API_SERVER, persona);
   }
 }

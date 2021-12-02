@@ -5,52 +5,52 @@ import javax.persistence.*;
 @Entity
 @Table(name = "persona")
 public class Persona {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "codper")
-	private int id;
-	
+	private Long codper;
+
 	@Column(name = "nomper")
 	private String nomper;
-	
+
 	@Column(name = "apeper")
 	private String apeper;
-	
+
 	@Column(name = "userper")
 	private String userper;
-	
+
 	@Column(name = "pswdper")
 	private String pswdper;
-	
+
 	@Column(name = "dirper")
 	private String dirper;
-	
+
 	@Column(name = "emaper")
 	private String emaper;
-	
+
 	@Column(name = "dniper")
 	private String dniper;
-	
+
 	@Column(name = "celper")
 	private String celper;
-	
+
 	@Column(name = "rolper")
 	private String rolper;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "codubi")
-	private Ubigeo codubi;
-	
+	private Ubigeo ubigeo;
+
 	@Column(name = "estper")
 	private String estper;
 
-	public int getId() {
-		return id;
+	public Long getCodper() {
+		return codper;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCodper(Long codper) {
+		this.codper = codper;
 	}
 
 	public String getNomper() {
@@ -125,12 +125,12 @@ public class Persona {
 		this.rolper = rolper;
 	}
 
-	public Ubigeo getCodubi() {
-		return codubi;
+	public Ubigeo getUbigeo() {
+		return ubigeo;
 	}
 
-	public void setCodubi(Ubigeo codubi) {
-		this.codubi = codubi;
+	public void setUbigeo(Ubigeo ubigeo) {
+		this.ubigeo = ubigeo;
 	}
 
 	public String getEstper() {
