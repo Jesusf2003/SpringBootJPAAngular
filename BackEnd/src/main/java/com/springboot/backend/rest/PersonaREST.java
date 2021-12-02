@@ -10,7 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.springboot.backend.modelo.Persona;
+import com.springboot.backend.modelo.Ubigeo;
 import com.springboot.backend.service.PersonaService;
+import com.springboot.backend.service.UbigeoService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -25,7 +27,7 @@ public class PersonaREST {
 	private ResponseEntity<List<Persona>> getAllPer() {
 		return ResponseEntity.ok(perser.findAll());
 	}
-
+	
 	// Registrar
 	@PostMapping
 	private ResponseEntity<Persona> savePersona(@RequestBody Persona persona) throws URISyntaxException {

@@ -6,53 +6,95 @@
     <div class="card-body">
       <form class="form" [formGroup]="personaForm">
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese sus nombres"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese sus nombres"
             formControlName="nomper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese sus apellidos"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese sus apellidos"
             formControlName="apeper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese un usuario"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese un usuario"
             formControlName="userper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese una contraseña"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese una contraseña"
             formControlName="pswdper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese una dirección"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese una dirección"
             formControlName="dirper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese un correo"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese un correo"
             formControlName="emaper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese su Nº de DNI"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese su Nº de DNI"
             formControlName="dniper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese su Nº de celular"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese su Nº de celular"
             formControlName="celper">
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese un rol" formControlName="rolper">
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese un rol" formControlName="rolper">
         </div>
         <div class="mb-3">
-          <select name="id" id="id" class="form-control form-control-sm" formControlName="ubigeo">
+          <select name="id" id="id" class="form-control form-control-sm"
+            formControlName="ubigeo">
             <option [value]="item.codubi" *ngFor="let item of ubigeo">
-              {{item.codubi}}, {{ item.depubi }}, {{ item.proubi }}, {{ item.disubi }}
+              {{item.codubi}}, {{ item.depubi }}, {{ item.proubi }}, {{
+              item.disubi }}
             </option>
           </select>
         </div>
         <div class="mb-3">
-          <input type="text" class="form-control form-control-sm" placeholder="Ingrese su estado"
+          <input type="text" class="form-control form-control-sm"
+            placeholder="Ingrese su estado"
             formControlName="estper">
         </div>
-        <button type="submit" class="btn btn-primary btn-sm" (click)="agregarPersona();">Guardar datos</button>
+        <button type="submit" class="btn btn-primary btn-sm"
+          (click)="agregarPersona();">Guardar datos</button>
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="form" [formGroup]="personaForm">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Nombres:</label>
+            <input type="text" class="form-control" id="nomper" formControlName="nomper">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Apellidos:</label>
+            <input type="text" class="form-control" id="apeper" formControlName="apeper">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
     </div>
   </div>
 </div>
@@ -71,10 +113,11 @@
           <th>Ubigeo</th>
           <th>Rol</th>
           <th>Estado</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item for persona">
+        <tr *ngFor="let item of persona">
           <th>{{ item.codper }}</th>
           <td>{{ item.apeper }}, {{ item.nomper }}</td>
           <td>{{ item.celper }}</td>
@@ -87,6 +130,17 @@
           </td>
           <td>{{ item.rolper }}</td>
           <td>{{ item.estper }}</td>
+          <td>
+            <button type="button" class="btn btn-success"
+              data-bs-toggle="modal" data-bs-target="#editModal"
+              (click)="cargarPersona(item)">
+              Editar
+            </button>
+            <button type="button" class="btn btn-danger"
+              (click)="eliminarPersona(item)">
+              Eliminar
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
